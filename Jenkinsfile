@@ -24,11 +24,11 @@ pipeline {
             }
         }
         stage('Test') {
-            when {
-                expression {
-                   params.executeTests
-                }
-            }
+            // when {
+            //     expression {
+            //        params.executeTests
+            //     }
+            // }
             steps {
                 script {
                     gv.buildApp()
@@ -36,7 +36,7 @@ pipeline {
             }
         }
         stage('Deploy') {
-            input{
+            input {
                 message: "Select the env to deploy to"
                 ok "Done"
                 parameters{
