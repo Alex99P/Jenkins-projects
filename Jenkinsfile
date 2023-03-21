@@ -9,11 +9,6 @@ pipeline {
 
     stages {
         stage('Build') {
-             when {
-                expression {
-                    BRANCH_NAME == 'dev' && CODE_CHANGES == true
-                }
-            }
             steps {
                 echo 'Building..'
             }
