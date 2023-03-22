@@ -36,7 +36,7 @@ pipeline {
         stage('Build image') {
             steps {
                  script {
-                   buildImage()
+                   buildImage 'alexpatroi/my-jenkins:jma-3.2'
                 }
             }
         }
