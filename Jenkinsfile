@@ -1,7 +1,22 @@
+#!/usr/bin/env groovy
+
+@Library('jenkins-shared-library') //we put ' _ ', if don't have other variables after Library
+def gv
+
 pipeline {
     agent any
+    tools{
+        maven 'maven-3.6'
+    }
 
     stages {
+        stage('init'){
+            steps {
+                script{
+                    gv = load "script.groovy"
+                }
+            }
+        }
         stage('Test') {
             steps {
                 script {
@@ -10,27 +25,18 @@ pipeline {
                 }
             }
         }
-        stage('Build') {
-            when {
-                expression{
-                    BRANCH_NAME== 'main'
-                }
-            }
+        stage('Build jar') {
             steps {
                  script {
-                    echo "Testing the application.."
+                    buildJar()
+
                 }
             }
         }
-        stage('Deploy') {
-            when {
-                expression{
-                    BRANCH_NAME== 'main'
-                }
-            }
+        stage('Build image') {
             steps {
                  script {
-                    echo "Testing the application.."
+                   buildImage()
                 }
             }
         }
