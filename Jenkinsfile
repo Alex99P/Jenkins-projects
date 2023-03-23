@@ -36,7 +36,9 @@ pipeline {
         stage('Build image') {
             steps {
                  script {
-                   buildImage 'alexpatroi/my-jenkins:jma-3.2'
+                   buildImage 'alexpatroi/my-jenkins:jma-3.3'
+                   dockerLogin()
+                   dockerPush 'alexpatroi/my-jenkins:jma-3.3'
                 }
             }
         }
