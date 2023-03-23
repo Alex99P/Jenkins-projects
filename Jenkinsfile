@@ -1,6 +1,16 @@
 #!/usr/bin/env groovy
 
-@Library('jenkins-shared-library') //we put ' _ ', if don't have other variables after Library
+// this library it's global and defined in jenkins
+// @Library('jenkins-shared-library') //we put ' _ ', if don't have other variables after Library
+
+// this library can to use just in this project, it not globally
+library identifier: 'jenkins-shared-library@master', retriver: modernSCM(
+    [$class: 'GitSCMSource',
+    remote: 'https://github.com/Alex99P/jenkins-shared-library.git',
+    credentialsID:'github-credentials']
+)
+
+
 def gv
 
 pipeline {
