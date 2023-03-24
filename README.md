@@ -20,8 +20,7 @@
 * Install GitHub Plugin in Jenkins
 * Configure GitHub access token and connection to
 * Jenkins in GitHub project settings
-* Configure Jenkins to trigger the CI pipeline, whenever a
-* change is pushed to GitHub
+* Configure Jenkins to trigger the CI pipeline, whenever a change is pushed to GitHub
 
 ### Dynamically Increment Application version in Jenkins Pipeline
 * Configure CI step: 
