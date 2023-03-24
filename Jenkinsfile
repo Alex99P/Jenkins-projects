@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven "maven3.6"
+        maven "maven-3.6"
     }
     stages {
         stage('increment version'){
