@@ -37,7 +37,7 @@ pipeline {
                 }
             }
         }
-         stage('commit version update') {
+         stage('commit version update ') {
             steps {
                 script {
                     withCredentials([string(credentialsId: 'githunconn', variable: 'TOKEN')]) {
