@@ -1,6 +1,7 @@
 # Dynamically Increment Application version in Jenkins Pipeline
 
-## Jenkins, Docker, GitHub, Git, Java, Maven
+## Technologies used:
+# Jenkins, Docker, GitHub, Git, Java, Maven
 
 ## Project Description:
 
