@@ -29,4 +29,4 @@
     - Build Image with dynamic Docker Image Tag
     - Push Image to private DockerHub repository
     - Commit version update of Jenkins back to Git repository
-* Configure Jenkins pipeline to not trigger automatically on CI build commit to avoid commit loop
+* Configure Jenkins pipeline to not trigger automatically on CI build commit to avoid commit loop 
