@@ -7,12 +7,7 @@ library identifier: 'jenkins-shared-library@master', retriver: modernSCM(
 )
 
 pipeline {
-    agent {
-         docker {
-            image 'docker:latest'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
+    agent any
     tools {
         maven "maven-3.6"
     }
