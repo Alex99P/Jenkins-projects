@@ -22,6 +22,7 @@ pipeline {
                  script {
                     echo "Build the application.."
                     sh 'mvn clean package'
+                    sh 'whoami'
                 }
             }
         }
