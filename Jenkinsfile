@@ -24,7 +24,6 @@ pipeline {
             }
             steps {
                 script {
-                   sh 'aws-iam-authenticator help' 
                    echo 'deploying docker image...'
                    sh 'kubectl create deployment nginx-deployment --image=nginx'
                 }
