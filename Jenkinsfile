@@ -1,31 +1,34 @@
+#!/usr/bin/env groovy
+
 pipeline {
     agent any
-
     stages {
-        stage('Test') {
+        stage('build app') {
+            steps {
+               script {
+                   echo "building the application..."
+               }
+            }
+        }
+        stage('build image') {
             steps {
                 script {
-                    echo "Testing the application.."
-                    echo "Executing pipeline for branch $BRANCH_NAME"
+                    echo "building the docker image..."
                 }
             }
         }
-        stage('Build') {
-            steps {
-                 script {
-                    echo "Testing the application.."
-                }
+        stage('deploy') {
+            environment {
+               AWS_ACCESS_KEY_ID = credentials('jenkins_aws_access_key_id')
+               AWS_SECRET_ACCESS_KEY = credentials('jenkins_aws_secret_access_key')
             }
-        }
-        stage('Deploy') {
             steps {
-                 script {
-                    def dockerCmd = 'docker run -p3080:3080 -d alexpatroi/reactnodejs:5.1'
-                    sshagent(['ec2-sever-key']) {
-                     sh "ssh -o StrictHostKeyChecking=no  ec2-user@3.66.236.147 ${dockerCmd}"
-                    }
+                script {
+                   echo 'deploying docker image...'
+                   sh 'kubectl create deployment nginx-deployment --image=nginx'
                 }
             }
         }
     }
 }
+
